@@ -8,6 +8,8 @@ import json
 def index(request):
     return render(request, 'pages/index.html')
 
+def cf(request):
+    return render(request, 'pages/cf.html')
 
 def about(request):
     return render(request, 'pages/about.html')
