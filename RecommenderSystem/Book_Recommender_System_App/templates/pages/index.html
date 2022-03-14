@@ -72,25 +72,16 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h2 class="mt-4">Recommender System based on your goodreads data</h2>
-                        <form>
-                          <div class="form-group">
-                            <label for="exampleFormControlFile1"></label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                          </div>
-                        </form>
                         <p style="margin-top: 5em">&emsp;</p>
-                        <h2 class="mt-4">Recommender System by writting a book name</h2>
+                        <h2 class="mt-4">Recommendation based on content </h2>
                         <form class="form-inline">
                           <div class="form-group mb-2">
                             <label for="staticEmail2" class="sr-only">Email</label>
                             <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Write a book from which recommend related content based books">
                           </div>
-                          <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Password</label>
-                            <input type="password" class="form-control" id="inputPassword2" placeholder="Harry potter and the sorcerer's stone">
-                          </div>
-                          <button type="submit" class="btn btn-primary">Recommend me some books</button>
+                        <form action="#" method="get">
+                            <input type="text" class="form-control" name="mytextbox" placeholder="The Sixties: From Memory to History"/>
+                            <input type="submit" class="btn btn-primary" value="Recommend me some books" name="mybtn">
                         </form>
 
                     </div>
@@ -109,6 +100,7 @@
                 </footer>
             </div>
         </div>
+        {{Recommendation | json_script:"Recommendation"}}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{% static 'js/scripts.js' %}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -116,5 +108,6 @@
         <script src="{% static 'assets/demo/chart-bar-demo.js' %}"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+        <script src="{% static 'js/index.js' %}"></script>
     </body>
 </html>
