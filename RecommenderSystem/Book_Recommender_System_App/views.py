@@ -52,9 +52,9 @@ def index(request):
         df['cleaned_desc'] = df.cleaned_desc.apply(func=remove_html)
 
         print(request.GET.get('mytextbox'))
-        print(list(recommend(df, title=request.GET.get('mytextbox'))["title"]))
+        print(list(recommend(df, title=request.GET.get('mytextbox'))["image"]))
 
-        context = {"Recommendation": list(recommend(df, title=request.GET.get('mytextbox'))["title"])}
+        context = {"Recommendation": list(recommend(df, title=request.GET.get('mytextbox'))["image"])}
         return render(request, 'pages/index.html', context)
 
     return render(request, 'pages/index.html')

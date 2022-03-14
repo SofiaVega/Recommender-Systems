@@ -72,18 +72,21 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <p style="margin-top: 5em">&emsp;</p>
                         <h2 class="mt-4">Recommendation based on content </h2>
                         <form class="form-inline">
                           <div class="form-group mb-2">
                             <label for="staticEmail2" class="sr-only">Email</label>
                             <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Write a book from which recommend related content based books">
                           </div>
-                        <form action="#" method="get">
-                            <input type="text" class="form-control" name="mytextbox" placeholder="The Sixties: From Memory to History"/>
-                            <input type="submit" class="btn btn-primary" value="Recommend me some books" name="mybtn">
                         </form>
-
+                        <div class="container">
+                            <form action="#" method="get">
+                                <input type="text" class="form-control" name="mytextbox" placeholder="The Sixties: From Memory to History"/><br>
+                                <input type="submit" class="btn btn-primary" value="Recommend me some books" name="mybtn">
+                                <p style="margin-top: 1em">&emsp;</p>
+                            </form>
+                            <div class="container" id="images"></div>
+                        </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
