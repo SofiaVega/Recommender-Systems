@@ -110,7 +110,7 @@ def cf(request):
         results = recommend2(request.GET.get('mytextbox'))
         print(results)
 
-        context = {"Recommendation": list(results["Image"])}
+        context = {"Recommendation": list(results["Image"]), "First": "false"}
         return render(request, 'pages/cf.html', context)
 
     return render(request, 'pages/cf.html')
