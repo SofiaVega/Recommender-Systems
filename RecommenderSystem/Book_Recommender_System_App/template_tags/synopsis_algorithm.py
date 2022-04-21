@@ -21,6 +21,7 @@ def recommend(df, title):
 
     # Convert the index into series
     indices = pd.Series(data.index, index=data['title'])
+    
 
     # Converting the book description into vectors and used bigram
     tf = TfidfVectorizer(analyzer='word', ngram_range=(2, 2), min_df=1, stop_words='english')
@@ -30,7 +31,13 @@ def recommend(df, title):
     sg = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
     # Get the index corresponding to original_title
-    idx = indices[title]
+    try:
+        idx = indices[title]
+    except:
+        column_names = ['title', 'image', 'subjects']
+        empty_df = pd.DataFrame(columns = column_names)
+        print("error, empty df")
+        return empty_df
 
     # Get the pairwsie similarity scores
     sig = list(enumerate(sg[idx]))

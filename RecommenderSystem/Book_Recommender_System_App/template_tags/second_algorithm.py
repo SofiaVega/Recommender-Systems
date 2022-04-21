@@ -68,8 +68,13 @@ def recommend_book(df_pivot, corr_mat, name, user_rating):
             corr_book = corr_mat[book_index] 
             print("Recommendation for " + name + " are:")
             recommend=list(book_names[(corr_book<1.0) & (corr_book>0.8)][1:])
-            return df_recommend(recommend, user_Rating)
+            return df_recommend(recommend, user_rating)
     except:
+        # return empty df of form ['Recommend Books','Year of Publication','Author','Image']
+        column_names = ['Recommend Books','Year of Publication','Author','Image']
+        empty_df = pd.DataFrame(columns = column_names)
+        print("error, empty df")
+        return empty_df
         print("Enter the Book Name Again")
         #recommend_book(df_pivot,corr_mat, name)
 
