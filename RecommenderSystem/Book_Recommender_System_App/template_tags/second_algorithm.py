@@ -84,9 +84,9 @@ def recommend_book(df_pivot, corr_mat, name, user_rating):
         #recommend_book(df_pivot,corr_mat, name)
 
 def recommend2(book_name):
-    data_path = os.path.abspath("/Users/sofiavega/proyectos/Recommender-Systems/RecommenderSystem/Book_Recommender_System_App/template_tags/out_matrix.csv")
-    user_rating_pivot2 = pd.read_csv("/Users/sofiavega/proyectos/Recommender-Systems/RecommenderSystem/Book_Recommender_System_App/user_rating_pivot2.csv")
-    data_path_rating = os.path.abspath("Book_Recommender_System_App/static/tables/rating.csv")
+    data_path = os.path.abspath("RecommenderSystem/Book_Recommender_System_App/template_tags/out_matrix.csv")
+    user_rating_pivot2 = pd.read_csv("RecommenderSystem/Book_Recommender_System_App/user_rating_pivot2.csv")
+    data_path_rating = os.path.abspath("RecommenderSystem/Book_Recommender_System_App/static/tables/rating.csv")
     df = pd.read_csv(data_path)
     df_rating = pd.read_csv(data_path_rating)
     '''
@@ -99,7 +99,7 @@ def recommend2(book_name):
     corr = np.corrcoef(matrix)
     '''
     #corr = df.to_numpy()
-    corr = np.loadtxt('/Users/sofiavega/proyectos/Recommender-Systems/RecommenderSystem/Book_Recommender_System_App/corr_mat.txt', delimiter=',')
+    corr = np.loadtxt('RecommenderSystem/Book_Recommender_System_App/corr_mat.txt', delimiter=',')
 
     return recommend_book(user_rating_pivot2, corr, book_name, df_rating)
 
