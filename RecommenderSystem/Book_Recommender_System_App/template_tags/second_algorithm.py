@@ -23,6 +23,8 @@ def path_to_image_html(path):
     return '<img src="'+ path + '" width="60" >'
 
 def df_recommend(recommend, user_rating):
+    print("recommend")
+    print(recommend)
     recommend=recommend[:5]
     year=[]
     author = []
@@ -50,7 +52,9 @@ def df_recommend(recommend, user_rating):
 
 def recommend_book(df_pivot, corr_mat, name, user_rating):
     #name=input("Enter the Name of the Book : ")
+    print(df_pivot.head())
     book_names = df_pivot.columns
+    print("book names")
     print(book_names)
     book_list = list(book_names)
     try:
@@ -73,14 +77,19 @@ def recommend_book(df_pivot, corr_mat, name, user_rating):
         # return empty df of form ['Recommend Books','Year of Publication','Author','Image']
         column_names = ['Recommend Books','Year of Publication','Author','Image']
         empty_df = pd.DataFrame(columns = column_names)
+        print(book_list)
         print("error, empty df")
         return empty_df
         print("Enter the Book Name Again")
         #recommend_book(df_pivot,corr_mat, name)
 
 def recommend2(book_name):
-    data_path = os.path.abspath("Book_Recommender_System_App/static/tables/out.csv")
+    data_path = os.path.abspath("/Users/sofiavega/proyectos/Recommender-Systems/RecommenderSystem/Book_Recommender_System_App/template_tags/out_matrix.csv")
+    user_rating_pivot2 = pd.read_csv("/Users/sofiavega/proyectos/Recommender-Systems/RecommenderSystem/Book_Recommender_System_App/user_rating_pivot2.csv")
+    data_path_rating = os.path.abspath("Book_Recommender_System_App/static/tables/rating.csv")
     df = pd.read_csv(data_path)
+    df_rating = pd.read_csv(data_path_rating)
+    '''
     data_path_rating = os.path.abspath("Book_Recommender_System_App/static/tables/rating.csv")
     df_rating = pd.read_csv(data_path_rating)
     X = df.values.T
@@ -88,7 +97,11 @@ def recommend2(book_name):
     matrix = SVD.fit_transform(X)
     warnings.filterwarnings("ignore",category =RuntimeWarning)
     corr = np.corrcoef(matrix)
-    return recommend_book(df, corr, book_name, df_rating)
+    '''
+    #corr = df.to_numpy()
+    corr = np.loadtxt('/Users/sofiavega/proyectos/Recommender-Systems/RecommenderSystem/Book_Recommender_System_App/corr_mat.txt', delimiter=',')
+
+    return recommend_book(user_rating_pivot2, corr, book_name, df_rating)
 
     booksjson = {
         "books":[

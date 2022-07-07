@@ -56,7 +56,7 @@ def index(request):
         print(request.GET.get('mytextbox'))
         print(list(recommend(df, title=request.GET.get('mytextbox'))["image"]))
 
-        context = {"Recommendation": list(recommend(df, title=request.GET.get('mytextbox'))["image"])}
+        context = {"Recommendation": list(recommend(df, title=request.GET.get('mytextbox'))["image"]), "First": "false"}
         return render(request, 'pages/index.html', context)
 
     return render(request, 'pages/index.html')
